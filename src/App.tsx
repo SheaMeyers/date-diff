@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { DateRangePicker } from 'react-dates';
+import Moment from 'moment';
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+
 
 function App() {
+
+  const [focusedInput, setFocusedInput] = useState<'startDate' | 'endDate' | null>(null);
+
+  const [startDate, setStartDate] = useState<Moment.Moment | null>(null);
+  const [endDate, setEndDate] = useState<Moment.Moment | null>(null);
+
+  const handleDatesChanged = (startDate: Moment.Moment | null, endDate: Moment.Moment | null) => {
+    setStartDate(startDate);
+    setEndDate(endDate);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DateRangePicker
+        startDate={startDate} // momentPropTypes.momentObj or null,
+        startDateId="start_date_id" // PropTypes.string.isRequired,
+        endDate={endDate} // momentPropTypes.momentObj or null,
+        endDateId="end_date_id" // PropTypes.string.isRequired,
+        onDatesChange={({ startDate, endDate }) => handleDatesChanged(startDate, endDate)} // PropTypes.func.isRequired,
+        focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+        onFocusChange={focusedInput => setFocusedInput(focusedInput)} // PropTypes.func.isRequired,
+      />
     </div>
   );
 }
