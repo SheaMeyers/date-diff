@@ -29,6 +29,10 @@ function App() {
         onFocusChange={focusedInput => setFocusedInput(focusedInput)}
         isOutsideRange={() => false}
       />
+      {
+        startDate && endDate &&
+        <p>It is <b>{endDate.diff(startDate, 'days')}</b> days between the two dates</p>
+      }
     </div>
   );
 }
