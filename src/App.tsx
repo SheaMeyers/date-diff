@@ -20,13 +20,14 @@ function App() {
   return (
     <div className="App">
       <DateRangePicker
-        startDate={startDate} // momentPropTypes.momentObj or null,
-        startDateId="start_date_id" // PropTypes.string.isRequired,
-        endDate={endDate} // momentPropTypes.momentObj or null,
-        endDateId="end_date_id" // PropTypes.string.isRequired,
-        onDatesChange={({ startDate, endDate }) => handleDatesChanged(startDate, endDate)} // PropTypes.func.isRequired,
-        focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-        onFocusChange={focusedInput => setFocusedInput(focusedInput)} // PropTypes.func.isRequired,
+        startDate={startDate}
+        startDateId="start_date_id"
+        endDate={endDate}
+        endDateId="end_date_id"
+        onDatesChange={({ startDate, endDate }) => handleDatesChanged(startDate, endDate)}
+        focusedInput={focusedInput}
+        onFocusChange={focusedInput => setFocusedInput(focusedInput)}
+        isOutsideRange={() => false}
       />
     </div>
   );
