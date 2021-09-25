@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "repository": "https://github.com/SheaMeyers/date-diff.git",
-  "homepage": "http://sheameyers.github.io/date-diff",
+  "homepage": "https://date-difference.sheameyers.com",
   "dependencies": {
     "@babel/runtime": "^7.15.4",
     "@testing-library/jest-dom": "^5.11.4",
