@@ -20,6 +20,9 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Date Difference</h1>
+      <h2>Get the Difference Between Two Dates</h2>
+      <br/>
       <DateRangePicker
         startDate={startDate}
         startDateId="start_date_id"
